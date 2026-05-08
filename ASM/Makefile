@@ -26,7 +26,7 @@ sully: $(SULLY_SRC)
 all: colleen grace sully
 
 clean:
-	rm -f *.o
+	rm -f *.o Grace_kid.* Sully_?.*
 
 fclean: clean
 	rm -f $(COLLEEN_EXE) $(GRACE_EXE) $(SULLY_EXE)
