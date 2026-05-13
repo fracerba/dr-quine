@@ -1,13 +1,13 @@
-COLLEEN_SRC = Colleen.c
-GRACE_SRC = Grace.c
-SULLY_SRC = Sully.c
+COLLEEN_SRC = Colleen.cpp
+GRACE_SRC = Grace.cpp
+SULLY_SRC = Sully.cpp
 
 COLLEEN_EXE = Colleen
 GRACE_EXE = Grace
 SULLY_EXE = Sully
 
-CC = clang
-FLAGS = -Wall -Wextra -Werror
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++17
 
 colleen: $(COLLEEN_SRC)
 	$(CC) $(FLAGS) -o $(COLLEEN_EXE) $(COLLEEN_SRC)
