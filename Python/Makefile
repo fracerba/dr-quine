@@ -4,16 +4,16 @@ SULLY = Sully.py
 
 CC = python3
 
-colleen: $(COLLEEN)
+Colleen: $(COLLEEN)
 	$(CC) $(COLLEEN)
 
-grace: $(GRACE)
+Grace: $(GRACE)
 	$(CC) $(GRACE)
 
-sully: $(SULLY)
+Sully: $(SULLY)
 	$(CC) $(SULLY)
 
-all: colleen grace sully
+all: Colleen Grace Sully
 
 clean:
 	rm -f Grace_kid.* Sully_*

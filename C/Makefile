@@ -9,16 +9,16 @@ SULLY_EXE = Sully
 CC = clang
 FLAGS = -Wall -Wextra -Werror
 
-colleen: $(COLLEEN_SRC)
+$(COLLEEN_EXE): $(COLLEEN_SRC)
 	$(CC) $(FLAGS) -o $(COLLEEN_EXE) $(COLLEEN_SRC)
 
-grace: $(GRACE_SRC)
+$(GRACE_EXE): $(GRACE_SRC)
 	$(CC) $(FLAGS) -o $(GRACE_EXE) $(GRACE_SRC)
 
-sully: $(SULLY_SRC)
+$(SULLY_EXE): $(SULLY_SRC)
 	$(CC) $(FLAGS) -o $(SULLY_EXE) $(SULLY_SRC)
 
-all: colleen grace sully
+all: $(COLLEEN_EXE) $(GRACE_EXE) $(SULLY_EXE)
 
 clean:
 	rm -f *.o Grace_kid.* Sully_*

@@ -14,16 +14,16 @@ CC = nasm
 GCC = gcc
 FLAGS = -f elf64
 
-colleen: $(COLLEEN_SRC)
+$(COLLEEN_EXE): $(COLLEEN_SRC)
 	$(CC) $(FLAGS) $(COLLEEN_SRC) -o $(COLLEEN_OBJ) && $(GCC) $(COLLEEN_OBJ) -o $(COLLEEN_EXE)
 
-grace: $(GRACE_SRC)
+$(GRACE_EXE): $(GRACE_SRC)
 	$(CC) $(FLAGS) -o $(GRACE_OBJ) $(GRACE_SRC) && $(GCC) $(GRACE_OBJ) -o $(GRACE_EXE)
 
-sully: $(SULLY_SRC)
+$(SULLY_EXE): $(SULLY_SRC)
 	$(CC) $(FLAGS) -o $(SULLY_OBJ) $(SULLY_SRC) && $(GCC) $(SULLY_OBJ) -o $(SULLY_EXE)
 
-all: colleen grace sully
+all: $(COLLEEN_EXE) $(GRACE_EXE) $(SULLY_EXE)
 
 clean:
 	rm -f *.o Grace_kid.* Sully_*

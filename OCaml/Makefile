@@ -8,16 +8,16 @@ SULLY_EXE = Sully
 
 CC = ocamlopt
 
-colleen: $(COLLEEN_SRC)
+$(COLLEEN_EXE): $(COLLEEN_SRC)
 	$(CC) -o $(COLLEEN_EXE) $(COLLEEN_SRC)
 
-grace: $(GRACE_SRC)
+$(GRACE_EXE): $(GRACE_SRC)
 	$(CC) -o $(GRACE_EXE) $(GRACE_SRC)
 
-sully: $(SULLY_SRC)
+$(SULLY_EXE): $(SULLY_SRC)
 	$(CC) -o $(SULLY_EXE) $(SULLY_SRC)
 
-all: colleen grace sully
+all: $(COLLEEN_EXE) $(GRACE_EXE) $(SULLY_EXE)
 
 clean:
 	rm -f *.cm* *.o Grace_kid.* Sully_*
