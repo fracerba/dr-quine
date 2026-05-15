@@ -5,4 +5,4 @@
 */Sully_*
 */test.txt
 OCaml/*.cm[iox]
-OCaml/*.o
+*/*.o
