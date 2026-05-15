@@ -8,7 +8,7 @@
 */
 
 #define PATH "Grace_kid.c"
-#define STR "#include <stdio.h>%c#include <sys/stat.h>%c#include <fcntl.h>%c#include <unistd.h>%c%c/*%c%cthis program is a quine, it self-replicates its own source code when executed.%c*/%c%c#define PATH %c%s%c%c#define STR %c%s%c%c#define FT() int main(void) { int fd = open(PATH, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd == -1) { perror(%cError opening file%c); return 1; } dprintf (fd, STR, 10, 10, 10, 10, 10, 10, 9, 10, 10, 10, 34, PATH, 34, 10, 34, STR, 34, 10, 34, 34, 10, 10); close (fd); return 0;}%c%cFT()"
-#define FT() int main(void) { int fd = open(PATH, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd == -1) { perror("Error opening file"); return 1; } dprintf (fd, STR, 10, 10, 10, 10, 10, 10, 9, 10, 10, 10, 34, PATH, 34, 10, 34, STR, 34, 10, 34, 34, 10, 10); close (fd); return 0;}
+#define STR "#include <stdio.h>%1$c#include <sys/stat.h>%1$c#include <fcntl.h>%1$c#include <unistd.h>%1$c%1$c/*%1$c%2$cthis program is a quine, it self-replicates its own source code when executed.%1$c*/%1$c%1$c#define PATH %3$c%4$s%3$c%1$c#define STR %3$c%5$s%3$c%1$c#define FT() int main(void) { int fd = open(PATH, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd == -1) { perror(%3$cError opening file%3$c); return 1; } dprintf (fd, STR, 10, 9, 34, PATH, STR); close (fd); return 0;}%1$c%1$cFT()"
+#define FT() int main(void) { int fd = open(PATH, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd == -1) { perror("Error opening file"); return 1; } dprintf (fd, STR, 10, 9, 34, PATH, STR); close (fd); return 0;}
 
 FT()
