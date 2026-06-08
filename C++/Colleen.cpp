@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
 
@@ -8,17 +7,16 @@ using namespace std;
 */
 
 string get_quine(string s){
-	replace(s.begin(), s.end(), 64, 9);
-	replace(s.begin(), s.end(), 36, 10);
-	replace(s.begin(), s.end(), 96, 34);
+	for (char& c : s)
+		c = (c == 64) ? 9 : (c == 36) ? 10 : (c == 96) ? 34 : c;
 	return s;
 }
 
 int main (void) {
-	string str = "#include <iostream>$#include <algorithm>$$using namespace std;$$/*$@this comment is outside a function$*/$$string get_quine(string s){$@replace(s.begin(), s.end(), 64, 9);$@replace(s.begin(), s.end(), 36, 10);$@replace(s.begin(), s.end(), 96, 34);$@return s;$}$$int main (void) {$@string str = ``;$@/*$@@this comment is inside main$@*/$@cout << get_quine(str).insert(295, str);$@return 0;$}";
+	string str = "#include <iostream>$$using namespace std;$$/*$@this comment is outside a function$*/$$string get_quine(string s){$@for (char& c : s)$@@c = (c == 64) ? 9 : (c == 36) ? 10 : (c == 96) ? 34 : c;$@return s;$}$$int main (void) {$@string str = ``;$@/*$@@this comment is inside main$@*/$@cout << get_quine(str).insert(239, str);$@return 0;$}";
 	/*
 		this comment is inside main
 	*/
-	cout << get_quine(str).insert(295, str);
+	cout << get_quine(str).insert(239, str);
 	return 0;
 }
